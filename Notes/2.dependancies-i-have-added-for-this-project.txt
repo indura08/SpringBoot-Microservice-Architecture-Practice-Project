@@ -1,0 +1,19 @@
+for gateways microservice
+-------------------------
+
+Eureka Discovery Client 
+
+Gateway 
+
+Config Client 
+
+Spring Boot Actuator 
+
+for discovery server microservice
+------------------------------------
+
+Eureka Server
+
+Config Client 
+
+Spring Boot Actuator 
