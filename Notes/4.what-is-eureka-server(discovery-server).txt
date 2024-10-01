@@ -1,0 +1,30 @@
+What is eureka server (discovery server)
+-----------------------------------------
+
+In a Spring Boot microservice architecture, services need a way to find and communicate with each other. This is where Eureka Server, also known as a Discovery Server, comes into play. Here's a simpler explanation of its role and what the Config and Eureka Server are:
+
+What is a Discovery Server (Eureka Server)?
+Imagine you have multiple microservices, like:
+
+A User Service that handles user data.
+A Product Service that manages products.
+An Order Service for orders.
+
+Now, instead of hardcoding their addresses (like user-service.com, product-service.com), microservices register themselves to the Eureka Server, which acts like a directory or phonebook for all services. Other services can then ask Eureka to find out where a specific service is, like:
+
+Order Service: "Hey Eureka, where's the Product Service?"
+Eureka: "It's here at product-service.com!"
+
+This is especially useful because microservices can scale up or down, and their addresses may change. Eureka keeps track of all those changes dynamically.
+
+Key Components in Eureka:
+
+1. Eureka Server (Discovery Server):
+
+The central directory where all microservices register themselves.
+Other services can query it to find where a particular service is running.
+
+2.Eureka Client:
+
+Every microservice is a client that registers itself with the Eureka Server and asks for the addresses of other services when needed
+
