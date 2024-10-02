@@ -17,3 +17,22 @@ Eureka Server
 Config Client 
 
 Spring Boot Actuator 
+
+
+for student service 
+--------------------
+
+PostgreSQL Driver
+
+Lombok 
+
+Spring Data JPA
+
+Spring Web
+
+Config Client
+
+Eureka Discovery Client
+
+Spring Boot Actuator
+
