@@ -41,4 +41,9 @@ public class StudentController {
             return ResponseEntity.status(HttpStatus.OK).body(student);
         }
     }
+
+    @GetMapping("/school/{school-id}")
+    public ResponseEntity<List<Student>> getStudentsBySchoolId(@PathVariable("school-id") int schoolId){
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.findAllStudentBySchool(schoolId));
+    }
 }
