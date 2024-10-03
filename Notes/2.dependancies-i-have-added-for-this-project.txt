@@ -19,7 +19,7 @@ Config Client
 Spring Boot Actuator 
 
 
-for student service 
+for student/school service 
 --------------------
 
 PostgreSQL Driver
@@ -36,3 +36,7 @@ Eureka Discovery Client
 
 Spring Boot Actuator
 
+to make the connection between two microservices schoold and student
+---------------------------------------------------------------------
+
+wadipura dependency ekkwidiyr argena pom.xml ekat add kale

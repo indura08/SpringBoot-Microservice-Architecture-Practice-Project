@@ -1,0 +1,71 @@
+In Spring Boot, the @FeignClient annotation is used to easily communicate with other services over HTTP. It’s part of Spring Cloud and simplifies the process of calling REST APIs, allowing you to define the service you want to call as if it were a normal Java interface.
+
+How @FeignClient Works (Simplified):
+-------------------------------------
+
+Define a Client Interface: Instead of writing a lot of code to call an external API, you can create an interface and annotate it with @FeignClient. This interface tells Spring that it should make HTTP requests to the other service.
+
+Service Communication: When your application runs, Spring Boot will automatically generate the necessary code to call the external service based on the methods in your interface.
+
+Example:
+Let’s say you have a service that needs to call another service that provides weather information.
+
+Step 1: Add Feign Dependency
+First, make sure you have Feign in your project. Add this to your pom.xml (if using Maven):
+
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+
+Step 2: Enable Feign in Your Application
+In your main application class, you need to enable Feign:
+
+
+@SpringBootApplication
+@EnableFeignClients
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+
+Step 3: Create a Feign Client Interface
+Now, create an interface that represents the API you want to call.
+
+@FeignClient(name = "weather-service", url = "https://api.weather.com")
+public interface WeatherClient {
+
+    @GetMapping("/v1/weather")
+    String getWeather();
+}
+
+@FeignClient(name = "weather-service", url = "https://api.weather.com"): This tells Spring to create a client for the weather service.
+@GetMapping("/v1/weather"): This maps to the endpoint you want to call.
+
+Step 4: Use the Feign Client in Your Code
+You can now inject and use this Feign client just like any other service.
+
+@Service
+public class WeatherService {
+
+    private final WeatherClient weatherClient;
+
+    @Autowired
+    public WeatherService(WeatherClient weatherClient) {
+        this.weatherClient = weatherClient;
+    }
+
+    public String fetchWeather() {
+        return weatherClient.getWeather();
+    }
+}
+
+When you call weatherClient.getWeather(), it will automatically make an HTTP request to https://api.weather.com/v1/weather and return the result.
+
+Why Use @FeignClient?
+----------------------
+Simplifies HTTP Requests: You don’t have to manually handle HTTP requests using something like RestTemplate. Feign generates all of that for you.
+Declarative: You just declare the service and the endpoints you want to call in an interface. Spring will take care of the rest.
+Integration with Other Spring Features: It works seamlessly with other Spring features like load balancing, security, etc.
+In short, @FeignClient helps make your service talk to other services with less code, making it easy and clean!

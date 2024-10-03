@@ -41,4 +41,9 @@ public class SchoolController {
             return ResponseEntity.status(HttpStatus.OK).body(student);
         }
     }
+
+    @GetMapping("/with-student/{school-id}")
+    public ResponseEntity<FullSchoolResponse> findAllSchools(@PathVariable("school-id") int schoolId){
+        return ResponseEntity.status(HttpStatus.OK).body(schoolService.findSchoolsWithStudents(schoolId));
+    }
 }
