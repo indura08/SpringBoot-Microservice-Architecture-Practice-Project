@@ -1,0 +1,12 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: native  #A profile in Spring Boot is like a set of configurations that you can switch on or off depending on the environment (e.g., development, production). The native profile tells Spring Cloud Config Server to load the configurations from a local source, instead of from a Git repository or other external source.
+  application:
+    name: config-server
+  cloud:    #his section is specific to Spring Cloud.
+    config:     #This refers to Spring Cloud Config, which is used to manage configurations for other microservices. The config server provides configuration files to the other microservices in your project.
+      server:     #Refers to the config server part of the Spring Cloud Config Server, which handles the configuration data.
+        native:   #This part is used when the config server is reading configurations from a local source (instead of Git, Vault, etc.). When you activate the native profile, it looks for configuration files directly on the server itself, rather than fetching them from an external repository (like GitHub).
+          search-locations: classpath:/configurations

@@ -1,29 +1,35 @@
-eureka:
-  instance:
-    hostname: localhost
-    client:
-      service-url:
-        defaultZone: http://localhost:8761/eureka
+#eureka:
+#  instance:
+#    hostname: localhost
+#    client:
+#      service-url:
+#        defaultZone: http://localhost:8761/eureka
 
-server:
-  port: 8070
+#server:
+#  port: 8070
+
 spring:
   application:
-    name: schools
+    name: schools   #methnadi api me configuration ek config server ekt deddi configuration folder eke yml file ek hadaddi me namama denna one e file eke namatah
   config:
     import: optional:configserver:http://localhost:8888
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/schools
-    username: postgres
-    password: password
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 
-application:
-  config:
-    students-url: http://localhost:8090/api/v1/students
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/schools
+#    username: postgres
+#    password: password
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    database: postgresql
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#
+#
+#application:
+#  config:
+#    students-url: http://localhost:8222/api/v1/students
+
+
+#meke me comment krla thiynne api methna configuration krnne nathuwa congif servere eke me confiduratione eke krla ekt baradunnanen, ekn thami dan meke configuration eke wenne apita aaye meka blnna one nha
