@@ -20,5 +20,5 @@ public class School {
     private int id;
 
     private String name;
-    private String email;
+    private String email;   //54:25n nwattuwe
 }
