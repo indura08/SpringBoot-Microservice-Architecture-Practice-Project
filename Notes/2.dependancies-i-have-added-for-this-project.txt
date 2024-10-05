@@ -7,6 +7,8 @@ Gateway
 
 Config Client 
 
+zipkin
+
 Spring Boot Actuator 
 
 for discovery server microservice
@@ -29,6 +31,8 @@ Lombok
 Spring Data JPA
 
 Spring Web
+
+zipkin
 
 Config Client
 
